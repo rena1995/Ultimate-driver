@@ -5,7 +5,6 @@ import os.path
 import time
 from tkinter import ttk
 import winsound as sound
-import threading
 
 class Start_page():
     def __init__(self, root, width, height):
@@ -584,11 +583,13 @@ class Level():
         self.button_save_score.config(state="normal")
         self.button_pause.config(state="disable")
         self.f2 = tk.Frame(self.canvas)
-        self.button_play_again = tk.Button(self.f2, text=' play again ',command=self.play_again,font="Arial 20", width=10)
+        menu_display = tk.Label(self.f2, fg='white', bg='black', font='Forte 20', text="Menu")
+        menu_display.pack(side='top', fill='x', expand=True, pady=2, padx=2)
+        self.button_play_again = tk.Button(self.f2, text=' play again ',bg="green",command=self.play_again,font="Arial 20", width=10,activebackground="green")
         self.button_play_again.pack(side='top', fill='y', expand=0)
-        self.button_start_page = tk.Button(self.f2, text=' start page ', font="Arial 20", command=self.start_page,width=10)
+        self.button_start_page = tk.Button(self.f2, text=' start page ',bg="yellow", font="Arial 20", command=self.start_page,width=10,activebackground="yellow")
         self.button_start_page.pack(side='top', fill='both', expand=0)
-        self.button_quit = tk.Button(self.f2, text=' quit ', font="Arial 20", command=self.quit, width=10)
+        self.button_quit = tk.Button(self.f2, text=' quit ',bg="red", font="Arial 20", command=self.quit, width=10,activebackground="red")
         self.button_quit.pack(side='top', fill='both', expand=0)
         self.canvas.create_window(400,200, window=self.f2, anchor="nw")
 
@@ -631,11 +632,13 @@ class Level():
             self.fuels.stop_blink()
             self.canvas.itemconfig(self.fuels.f, text="Low!\n  " + str(self.fuels.fuel) + "%", fill="red")
         self.f3 = tk.Frame(self.canvas)
-        self.button_resume = tk.Button(self.f3, text=' resume', font="Arial 20", command=self.resume,width=10)
+        menu_display = tk.Label(self.f3, fg='white', bg='black', font='Forte 20', text="Menu")
+        menu_display.pack(side='top', fill='x', expand=True, pady=2, padx=2)
+        self.button_resume = tk.Button(self.f3, text=' resume', font="Arial 20",bg="green", command=self.resume,width=10,activebackground="green")
         self.button_resume.pack(side='top', fill='both', expand=0)
-        self.button_start_page = tk.Button(self.f3, text=' start page ', font="Arial 20", command=self.start_page,width=10)
+        self.button_start_page = tk.Button(self.f3, text=' start page ', font="Arial 20",bg="yellow", command=self.start_page,width=10,activebackground="yellow")
         self.button_start_page.pack(side='top', fill='both', expand=0)
-        self.button_quit = tk.Button(self.f3, text=' quit ', font="Arial 20", command=self.quit, width=10)
+        self.button_quit = tk.Button(self.f3, text=' quit ', font="Arial 20",bg="red", command=self.quit, width=10,activebackground="red")
         self.button_quit.pack(side='top', fill='both', expand=0)
         self.w=self.canvas.create_window(400, 200, window=self.f3, anchor="nw")
 
